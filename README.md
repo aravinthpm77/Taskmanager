@@ -24,7 +24,7 @@ Welcome to the Task Management Application! This project utilizes **React JS** a
 ### Installation
 1. **Clone the repository**:
     ```sh
-    git clone https://github.com/your-username/task-management-app.git
+    git clone https://github.com/aravinthpm77/Taskmanager
     cd task-management-app
     ```
 
