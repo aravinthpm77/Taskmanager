@@ -206,19 +206,29 @@ const Home=()=>{
                     <td class="text-base font-bold text-navy-700 text-black/70">
                     {Task.Status}
                     </td>
-                    <td class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs  whitespace-nowrap p-4">
+                    <td class="border-t-0  px-6 align-center border-l-0 border-r-0 text-xs  whitespace-nowrap p-4">
                     {editingTask === Task.S_no ? (
                     <button className="px-3 py-2 bg-green-400" onClick={() => updateTask(Task.S_no)}>
                         Save
                     </button>
                 ) : (
                     <>
-                        <button className="px-3 py-2 bg-green-400"
-                            onClick={() => completeTask(Task.S_no)}
-                            disabled={Task.Status === 'Complete'}
-                        >
+                        
+                        {Task.Status === 'Complete' ?
+                        <button className="px-3 py-2 bg-green-400/40 cursor-none"
+                            onClick={() => completeTask(Task.S_no)}>
                             Complete
                         </button>
+                        
+                        :
+                        <button className="px-3 py-2 bg-green-400"
+                            onClick={() => completeTask(Task.S_no)}>
+                            Complete
+                        </button>
+                        
+                        }
+
+
                         <button className="px-3 py-2 bg-yellow-300/90 ml-2" onClick={() => startEditing(Task)}>Update</button>
                         <button className="px-3 py-2 bg-red-600 ml-2" onClick={() => deleteTask(Task.S_no)}>Delete</button>
                     </>
