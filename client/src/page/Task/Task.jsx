@@ -19,7 +19,7 @@ const Task =()=>{
           
           console.log(token);
           if (token) {
-              axios.get('http://localhost:5000/verifyToken', {
+              axios.get('https://taskmanager-yrc9.onrender.com/verifyToken', {
                   headers: {
                       Authorization: `Bearer ${token.token}`
                   }
@@ -28,7 +28,7 @@ const Task =()=>{
                   setIsLoggedIn(true);
                   // Fetch profile data
                   axios
-            .get("http://localhost:5000/singleUser", {
+            .get("https://taskmanager-yrc9.onrender.com/singleUser", {
               headers: { Authorization: `Bearer ${token.token}` },
             })
 
@@ -71,7 +71,7 @@ const Task =()=>{
         console.log(title,userID, desc, "TaskDetails");
 
         try {
-            const response = await axios.post('http://localhost:5000/Task', {userID,title,desc }, {
+            const response = await axios.post('https://taskmanager-yrc9.onrender.com/Task', {userID,title,desc }, {
                 headers: {
                     'Content-Type': 'application/json'
                 }

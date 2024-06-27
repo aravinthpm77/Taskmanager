@@ -19,7 +19,7 @@ const Home=()=>{
     console.log('Checking authentication and fetching profile'); 
       console.log(token);
       if (token) {
-          axios.get('http://localhost:5000/verifyToken', {
+          axios.get('https://taskmanager-yrc9.onrender.com/verifyToken', {
               headers: {
                   Authorization: `Bearer ${token.token}`
               }
@@ -28,7 +28,7 @@ const Home=()=>{
               setIsLoggedIn(true);
               // Fetch profile data
               axios
-        .get("http://localhost:5000/singleUser", {
+        .get("https://taskmanager-yrc9.onrender.com/singleUser", {
           headers: { Authorization: `Bearer ${token.token}` },
           })
 
@@ -56,7 +56,7 @@ const Home=()=>{
   console.log(profileData)
 
   const completeTask = (taskId) => {
-    axios.put(`http://localhost:5000/task/${taskId}/complete`)
+    axios.put(`https://taskmanager-yrc9.onrender.com/task/${taskId}/complete`)
         .then(response => {
             console.log('Task completed:', response.data);
             fetchTask(profileData.s_no);  // Refresh the tasks list
@@ -68,7 +68,7 @@ const Home=()=>{
 
   
     const deleteTask = (s_no) => {
-        axios.delete(`http://localhost:5000/Deletetask/${s_no}`)
+        axios.delete(`https://taskmanager-yrc9.onrender.com/Deletetask/${s_no}`)
             .then(response => {
                 console.log('Task deleted:', response.data);
                 fetchTask(profileData.s_no);  // Refresh the tasks list
@@ -85,7 +85,7 @@ const Home=()=>{
     };
 
     const updateTask = (s_no) => {
-        axios.put(`http://localhost:5000/task/${s_no}`, {
+        axios.put(`https://taskmanager-yrc9.onrender.com/task/${s_no}`, {
             title: updatedTitle,
             desc: updatedDesc
         }).then(response => {
@@ -99,7 +99,7 @@ const Home=()=>{
     };
     const fetchTask = (userId) => {
         
-        axios.get(`http://localhost:5000/claimedTask/${userId}` ,userId)
+        axios.get(`https://taskmanager-yrc9.onrender.com/claimedTask/${userId}` ,userId)
             .then(response => {
                 console.log('Claimed Task:', response.data);
                 // Handle the claimed products data, e.g., set state in a React component

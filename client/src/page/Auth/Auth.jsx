@@ -32,7 +32,7 @@ const Auth = ()=>{
     }
     const handleSignup = async () => {
         try {
-            const response = await axios.post('http://localhost:5000/auth', { name, email, password }, {
+            const response = await axios.post('https://taskmanager-yrc9.onrender.com/auth', { name, email, password }, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -52,7 +52,7 @@ const Auth = ()=>{
             if (email === "admin@gmail.com" && password === "admin@123") {
                 navigate("/admin");
             } else {
-                const response = await axios.post('http://localhost:5000/login', { email, password }, {
+                const response = await axios.post('https://taskmanager-yrc9.onrender.com/login', { email, password }, {
                     headers: {
                         'Content-Type': 'application/json'
                     }
